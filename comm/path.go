@@ -33,18 +33,3 @@ func ParseKey(key, pkgName, prefix, suffix string) (string, string, string, erro
 	}
 	return prefix + path + suffix, structName, packageName, nil
 }
-
-func parsePWD() (string, string, error) {
-	path, err := os.Getwd()
-	if err != nil {
-		return "", "", err
-	}
-	pathSlice := strings.Split(path, string(os.PathSeparator))
-	if len(pathSlice) == 0 {
-		return "", "", nil
-	}
-	if len(pathSlice) == 1 {
-		return "", pathSlice[0], nil
-	}
-	return pathSlice[len(pathSlice)-2], pathSlice[len(pathSlice)-1], nil
-}

@@ -8,9 +8,8 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/zjutjh/gbc/comm"
+	"github.com/zjutjh/gbc/config"
 )
-
-const gitGBCTemplate = "git@github.com:zjutjh/gbc-template.git"
 
 var projectCreateCmd = &cobra.Command{
 	Use:     "new",
@@ -38,7 +37,11 @@ var projectCreateCmd = &cobra.Command{
 		comm.OutputDebug("创建项目[%s]到目录[%s]开始...", args[0], projectPath)
 
 		// 拉取框架模板
-		c := exec.Command("git", "clone", gitGBCTemplate, projectPath)
+		c := exec.Command("git", "clone", config.GBCGitTemplate, projectPath)
+		if comm.DebugMode {
+			c.Stdout = os.Stdout
+			c.Stderr = os.Stderr
+		}
 		err = c.Run()
 		if err != nil {
 			comm.OutputError("创建项目[%s]失败: 拉取gbc-template错误: %s", args[0], err.Error())

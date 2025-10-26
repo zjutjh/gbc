@@ -9,7 +9,7 @@ import (
 )
 
 func {$CMDName}Run(cmd *cobra.Command, args []string) error {
-	// 在此处编写命令业务逻辑
+	// TODO: 在此处编写命令业务逻辑
 	nlog.Pick().WithFields(logrus.Fields{
 		"cmd":  cmd.Name(),
 		"args": args,

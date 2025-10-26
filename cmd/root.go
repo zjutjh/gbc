@@ -16,7 +16,7 @@ var rootCmd = &cobra.Command{
 		comm.OutputInfo("当前gbc工具本地版本号: %s", cmd.Version)
 		_ = cmd.Help()
 	},
-	Version: "v1.3.0",
+	Version: "v1.3.1",
 }
 
 func Execute() {

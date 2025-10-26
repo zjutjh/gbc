@@ -10,7 +10,7 @@ import (
 type {$CronName}Job struct{}
 
 func ({$CronName}Job) Run() {
-	// 在此处编写定时任务业务逻辑
+	// TODO: 在此处编写定时任务业务逻辑
 	nlog.Pick().WithField("app", config.AppName()).Debug("定时任务运行")
 }
 `

@@ -35,7 +35,7 @@ type {$ApiStruct}ApiResponse struct {}
 
 // Run Api业务逻辑执行点
 func ({$Receiver} *{$ApiStruct}Api) Run(ctx *gin.Context) kit.Code {
-	// 在此编写具体接口业务逻辑
+	// TODO: 在此处编写接口业务逻辑
 	return comm.CodeOK
 }
 
